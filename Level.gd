@@ -21,7 +21,7 @@ func load_level_file(filename):
 		for x in range(len(lines[0])):
 			var tile_str = lines[y][x]
 			var new_instance = map_desc[tile_str].instance()
-			new_instance.global_position = Vector2(x * 3000, y * 3000)
+			new_instance.global_position = Vector2(x * 50, y * 50)
 			self.add_child(new_instance)
 
 # This doesn't seem to work, please fix.
