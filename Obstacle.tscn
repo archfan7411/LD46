@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[node name="Obstacle" type="StaticBody2D"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ObstacleTexture" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ObstacleCollision" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
+
