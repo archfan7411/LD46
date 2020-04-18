@@ -1,13 +1,14 @@
 extends KinematicBody2D
 
-var speed = 100
+# Also grid size
+var speed = 3000
 
 func _physics_process(delta):
-	if Input.is_action_pressed("up"):
+	if Input.is_action_just_pressed("up"):
 		self.move_and_slide(Vector2(0, -speed))
-	if Input.is_action_pressed("down"):
+	elif Input.is_action_just_pressed("down"):
 		self.move_and_slide(Vector2(0, speed))
-	if Input.is_action_pressed("left"):
+	elif Input.is_action_just_pressed("left"):
 		self.move_and_slide(Vector2(-speed, 0))
-	if Input.is_action_pressed("right"):
+	elif Input.is_action_just_pressed("right"):
 		self.move_and_slide(Vector2(speed, 0))
