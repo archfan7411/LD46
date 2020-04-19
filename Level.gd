@@ -36,8 +36,10 @@ func load_level_file(filename):
 		lvl_map.append(row)
 	var plr = Player.new()
 	state = State.new(lvl_map, plr)
-    OS.window_size = Vector2((len(lines)*SPACE)-BUFFER, (len(lines[0])*SPACE)-BUFFER)
+	OS.window_size = Vector2((len(lines)*SPACE)-BUFFER, (len(lines[0])*SPACE)-BUFFER)
 
-# This doesn't seem to work, please fix.
 func _ready():
 	load_level_file("test_level_2.txt")
+
+func get_state():
+	return state
