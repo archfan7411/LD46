@@ -34,8 +34,10 @@ func load_level_file(filename):
 			var new_instance = map_desc[tile_str].instance()
 			if new_instance.type == "Player":
 				player = new_instance
+				row.append(map_desc[" "].instance())
 			elif new_instance.type == "Enemy":
 				enemy = new_instance
+				row.append(map_desc[" "].instance())
 			else:
 				row.append(new_instance)
 			new_instance.global_position = Vector2(x * SPACE, y * SPACE)
