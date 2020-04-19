@@ -1,13 +1,13 @@
 extends Node2D
 
 var map_desc = {
-	" " : preload("res://Obstacle.tscn"),
-	"." : preload("res://Obstacle.tscn"),
-	"*" : preload("res://Obstacle.tscn"),
-	"G" : preload("res://Obstacle.tscn"),
-	"P" : preload("res://Obstacle.tscn"),
-	"I" : preload("res://Obstacle.tscn"),
-	"#" : preload("res://Obstacle.tscn"),
+	" " : preload("res://Empty.tscn"), # empty
+	"." : preload("res://Dirt.tscn"), # dirt
+	"*" : preload("res://Rock.tscn"), # rock
+	"G" : preload("res://Wall.tscn"), # wall
+	"P" : preload("res://Goal.tscn"), # goal
+	"I" : preload("res://Player.tscn"), # player
+	"#" : preload("res://Enemy.tscn"), # enemy
 }
 
 func load_level_file(filename):
