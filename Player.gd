@@ -16,11 +16,10 @@ func _physics_process(_delta):
 	for input in dir_offsets:
 		if Input.is_action_just_pressed(input):
 			var offset = dir_offsets[input]
-			print(offset)
 			var mv_target = get_pos() + offset
-			print(mv_target)
 			if state.get_type(mv_target) == "Empty":
 				self.translate(offset * Vector2(speed, speed))
+			state.player_pos = get_pos()
 
 func get_pos():
 	var pos = self.global_position
