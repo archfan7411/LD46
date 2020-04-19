@@ -4,10 +4,10 @@ var map_desc = {
 	" " : preload("res://Empty.tscn"), # empty
 	"." : preload("res://Dirt.tscn"), # dirt
 	"*" : preload("res://Rock.tscn"), # rock
-	"G" : preload("res://Wall.tscn"), # wall
-	"P" : preload("res://Goal.tscn"), # goal
-	"I" : preload("res://Player.tscn"), # player
-	"#" : preload("res://Enemy.tscn"), # enemy
+	"G" : preload("res://Goal.tscn"), # goal
+	"P" : preload("res://Player.tscn"), # Player
+	"I" : preload("res://Enemy.tscn"), # Enemy
+	"#" : preload("res://Wall.tscn"), # wall
 }
 
 func load_level_file(filename):
