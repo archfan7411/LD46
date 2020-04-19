@@ -26,6 +26,7 @@ func _physics_process(_delta):
 		pos = Vector2(pos.x+1, pos.y)
 		if state.get_type(pos) == "Empty":
 			self.translate(Vector2(speed, 0))
+	state.player_pos = get_pos()
 
 func get_pos():
 	var pos = self.global_position
