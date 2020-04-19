@@ -1,12 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Level.gd" type="Script" id=1]
-[ext_resource path="res://Player.gd" type="Script" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
-
-[sub_resource type="RectangleShape2D" id=2]
-
-[sub_resource type="RectangleShape2D" id=1]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
@@ -17,31 +11,4 @@ margin_bottom = 600.0
 __meta__ = {
 "_edit_group_": true
 }
-
-[node name="Enemy" type="KinematicBody2D" parent="."]
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="EnemyTexture" type="TextureRect" parent="Enemy"]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="EnemyCollision" type="CollisionShape2D" parent="Enemy"]
-shape = SubResource( 2 )
-
-[node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 100, 100 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="PlayerTexture" type="TextureRect" parent="Player"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 3 )
-
-[node name="PlayerCollision" type="CollisionShape2D" parent="Player"]
-shape = SubResource( 1 )
 
