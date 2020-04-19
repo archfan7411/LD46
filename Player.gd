@@ -1,14 +1,14 @@
 extends KinematicBody2D
 
 
-var speed = 3000
+var speed = 50
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("up"):
-		self.move_and_slide(Vector2(0, -speed))
+		self.translate(Vector2(0, -speed))
 	elif Input.is_action_just_pressed("down"):
-		self.move_and_slide(Vector2(0, speed))
+		self.translate(Vector2(0, speed))
 	elif Input.is_action_just_pressed("left"):
-		self.move_and_slide(Vector2(-speed, 0))
+		self.translate(Vector2(-speed, 0))
 	elif Input.is_action_just_pressed("right"):
-		self.move_and_slide(Vector2(speed, 0))
+		self.translate(Vector2(speed, 0))
