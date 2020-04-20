@@ -12,13 +12,15 @@ var dir_offsets = {
 
 func _physics_process(_delta):
 	var state = get_parent().get_state()
-	var holding_ctrl = Input.is_action_just_pressed("dig")
+	var digging = Input.is_action_pressed("dig")
 	for input in dir_offsets:
 		if Input.is_action_just_pressed(input):
 			var offset = dir_offsets[input]
 			var mv_target = get_pos() + offset
 			if state.get_type(mv_target) == "Empty":
 				self.translate(offset * Vector2(speed, speed))
+			elif state.get_type(mv_target) == "Dirt" and digging:
+				state.set_pos(mv_target, "Empty")
 			state.player_pos = get_pos()
 
 func get_pos():
