@@ -25,7 +25,7 @@ func clear_tile(pos):
 	var old_instance = level_map[pos.y][pos.x]
 	old_instance.queue_free()
 	var new_instance = empty.instance()
-	new_instance.global_position = Vector2(pos * Vector2(SPACE, SPACE))
+	new_instance.global_position = pos * Vector2(SPACE, SPACE)
 	level_map[pos.y][pos.x] = new_instance
 
 func move(pos1, pos2):
@@ -33,7 +33,7 @@ func move(pos1, pos2):
 	var instance2 = level_map[pos2.y][pos2.x]
 	instance2.queue_free()
 	var new_instance = empty.instance()
-	new_instance.global_position = Vector2(pos1 * Vector2(SPACE, SPACE))
+	new_instance.global_position = pos1 * Vector2(SPACE, SPACE)
 	level_map[pos1.y][pos1.x] = new_instance
 	level_map[pos2.y][pos2.x] = instance1
 
