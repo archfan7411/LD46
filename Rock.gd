@@ -12,6 +12,8 @@ func get_fall_offset():
 		return null
 	if state.get_type(tile_below) == "Empty":
 		return Vector2(0, 1)
+	if state.get_type(tile_below) != "Rock":
+		return null
 	var left_tile = get_pos() + Vector2(-1, 0)
 	if left_tile.x > 0 and state.get_type(left_tile) == "Empty":
 		var tile_left_below = get_pos() + Vector2(-1, 1)
