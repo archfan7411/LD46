@@ -5,29 +5,26 @@ var type = "Enemy"
 
 var mv_delta = 0
 
+var directions = [Vector2(1, 0), Vector2(0, 1), Vector2(-1, 0), Vector2(0, -1)]
+# Enemy starts pounting to the right.
+var rot = 0
+
 func choose_move_offset(player_pos):
 	var state = get_parent().get_state()
 	var mv_offset = null
 	var my_pos = get_pos()
-	var delta_x = player_pos.x - my_pos.x
-	var delta_y = player_pos.y - my_pos.y
-	if abs(delta_x) > abs(delta_y):
-		if delta_x > 0:
-			mv_offset = Vector2(1, 0)
+	while true:
+		var side_offset = directions[rot - 1]
+		var ahead_offset = directions[rot]
+		var side_tile = state.get_type(my_pos + side_offset)
+		var ahead_tile = state.get_type(my_pos + ahead_offset)
+		if side_tile == "Empty" or not ahead_tile == "Empty":
+			rot += 1
+			if rot >= 4:
+				rot = 0
+			return null
 		else:
-			mv_offset = Vector2(-1, 0)
-	else:
-		if delta_y > 0:
-			mv_offset = Vector2(0, 1)
-		else:
-			mv_offset = Vector2(0, -1)
-
-	var mv_target = my_pos + mv_offset
-	if state.get_type(mv_target) == "Empty":
-		return mv_offset
-	else:
-		# TODO follow a wall.
-		pass
+			return ahead_offset
 		
 func _physics_process(delta):
 	mv_delta += delta
