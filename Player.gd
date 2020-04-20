@@ -17,10 +17,17 @@ func _physics_process(_delta):
 		if Input.is_action_just_pressed(input):
 			var offset = dir_offsets[input]
 			var mv_target = get_pos() + offset
+			var old_pos = get_pos()
 			if state.get_type(mv_target) == "Empty":
 				self.translate(offset * Vector2(speed, speed))
+				var new_pos = get_pos()
+				state.move(old_pos, new_pos)
+			elif state.get_type(mv_target) == "Dirt" and not digging:
+				self.translate(offset * Vector2(speed, speed))	
+				var new_pos = get_pos()
+				state.move(old_pos, new_pos)
 			elif state.get_type(mv_target) == "Dirt" and digging:
-				state.set_pos(mv_target, "Empty")
+				state.clear_tile(mv_target)
 			state.player_pos = get_pos()
 
 func get_pos():

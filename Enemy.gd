@@ -80,7 +80,7 @@ func _physics_process(delta):
 		mv_delta = 0
 		var state = get_parent().get_state()
 		var player_pos = state.player_pos
-		var path = pathfind(Vector2(1, 5))
+		var path = pathfind(player_pos)
 		if path == null:
 			return
 		var mv_target = path[-1]
