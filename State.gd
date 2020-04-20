@@ -29,8 +29,20 @@ func set_pos(pos, type):
 		level_map[pos.y][pos.x] = instance
 		instance.global_position = Vector2(pos.x*SPACE, pos.y*SPACE)
 	elif type == "Empty":
-		level_map[pos.y][pos.x].queue_free()
 		var instance = empty.instance()
+		level_map[pos.y][pos.x].queue_free()
 		level_map[pos.y][pos.x] = instance
 		instance.global_position = Vector2(pos.x*SPACE, pos.y*SPACE)
+		if level_map[pos.y-1][pos.x].type == "Rock":
+			level_map[pos.y-1][pos.x].queue_free()
+			var instancea = empty.instance()
+			level_map[pos.y-1][pos.x].queue_free()
+			level_map[pos.y-1][pos.x] = instancea
+			set_pos(Vector2(pos.y-1, pos.x), "Empty")
+			var current_space = pos.y
+			for y in range(pos.y, len(level_map)):
+				if level_map[y][pos.x].type != "Empty":
+					set_pos(Vector2(pos.x, current_space), "Rock")
+				else:
+					current_space = y
 	
