@@ -29,6 +29,7 @@ func _physics_process(_delta):
 			elif state.get_type(mv_target) == "Dirt" and digging:
 				state.clear_tile(mv_target)
 			elif state.get_type(mv_target) == "Goal":
+				OS.window_size = Vector2(1024,600)
 				get_tree().change_scene("res://EndGame.tscn")
 			state.player_pos = get_pos()
 

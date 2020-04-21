@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Falling Rocks"
+run/main_scene="res://Menu.tscn"
 config/icon="res://textures/enemy.png"
 
 [input]
