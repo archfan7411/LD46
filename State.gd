@@ -63,4 +63,7 @@ func set_pos(pos, type):
 					set_pos(Vector2(pos.x, current_space), "Rock")
 				else:
 					current_space = y
-	
+
+func _input(event):
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
