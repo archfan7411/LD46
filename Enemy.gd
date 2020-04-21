@@ -48,7 +48,6 @@ func pathfind(player_pos):
 	var dist_tree = make_dist_tree()
 	if not player_pos in dist_tree:
 		# The player cannot be reached.
-		print("No path.")
 		return null
 	var last_dist = dist_tree[player_pos]
 	var path = [player_pos]
