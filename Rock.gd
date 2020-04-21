@@ -8,6 +8,9 @@ var last_mv_delta = 0
 func get_fall_offset():
 	var state = get_parent().get_state()
 	var tile_below = get_pos() + Vector2(0, 1)
+	if state.player_pos == tile_below:
+		OS.window_size = Vector2(1024,600)
+		get_tree().change_scene("res://Defeat.tscn")
 	if tile_below.y > len(state.level_map) - 1:
 		return null
 	if state.get_type(tile_below) == "Empty":
