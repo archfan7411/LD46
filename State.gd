@@ -11,6 +11,7 @@ var enemy = null
 
 var player_pos = Vector2()
 var enemy_pos = Vector2()
+var goal_pos = Vector2()
 
 func _init(lvlmap, plr, enm):
 	level_map = lvlmap
@@ -18,7 +19,6 @@ func _init(lvlmap, plr, enm):
 	enemy = enm
 
 func get_type(pos):
-	print(level_map[pos.y][pos.x].type)
 	return level_map[pos.y][pos.x].type
 
 func clear_tile(pos):
