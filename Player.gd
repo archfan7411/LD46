@@ -28,6 +28,8 @@ func _physics_process(_delta):
 				state.move(old_pos, new_pos)
 			elif state.get_type(mv_target) == "Dirt" and digging:
 				state.clear_tile(mv_target)
+			elif state.get_type(mv_target) == "Goal":
+				get_tree().change_scene("res://EndGame.tscn")
 			state.player_pos = get_pos()
 
 func get_pos():
