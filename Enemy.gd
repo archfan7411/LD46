@@ -43,6 +43,8 @@ func make_dist_tree():
 		dist += 1
 
 func pathfind(player_pos):
+	if get_pos() == player_pos:
+		return null
 	var dist_tree = make_dist_tree()
 	if not player_pos in dist_tree:
 		# The player cannot be reached.
@@ -80,13 +82,18 @@ func _physics_process(delta):
 		mv_delta = 0
 		var state = get_parent().get_state()
 		var player_pos = state.player_pos
-		var path = pathfind(player_pos)
+		var goal_pos = state.goal_pos
+		var target_pos = player_pos
+		var path = pathfind(target_pos)
 		if path == null:
 			return
 		var mv_target = path[-1]
 		for offset in directions:
 			if get_pos() + offset == mv_target:
+				var old_pos = get_pos()
 				self.translate(offset * Vector2(speed, speed))
+				var new_pos = get_pos()
+				state.move(old_pos, new_pos)
 				break
 		
 func get_pos():
