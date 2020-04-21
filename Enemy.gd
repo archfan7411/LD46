@@ -78,7 +78,7 @@ func follow_wall(player_pos):
 		
 func _physics_process(delta):
 	mv_delta += delta
-	if mv_delta >= 1:
+	if mv_delta >= 0.6:
 		mv_delta = 0
 		var state = get_parent().get_state()
 		var player_pos = state.player_pos
@@ -88,12 +88,16 @@ func _physics_process(delta):
 		if path == null:
 			return
 		var mv_target = path[-1]
+		if state.player_pos == mv_target:
+			OS.window_size = Vector2(1024,600)
+			get_tree().change_scene("res://Defeat.tscn")
 		for offset in directions:
 			if get_pos() + offset == mv_target:
 				var old_pos = get_pos()
 				self.translate(offset * Vector2(speed, speed))
 				var new_pos = get_pos()
 				state.move(old_pos, new_pos)
+				state.enemy_pos = get_pos()
 				break
 		
 func get_pos():
