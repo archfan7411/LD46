@@ -15,8 +15,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="LD46"
-config/icon="res://icon.png"
+config/name="Falling Rocks"
+config/icon="res://textures/enemy.png"
 
 [input]
 
